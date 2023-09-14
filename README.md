@@ -7,4 +7,5 @@
 Qid  | Date   | Level  | note
 ---- | ------ | ------ | ---------------
 1    | 230910 | E      | Two Sum
+20   | 230914 | E      | Valid Parentheses
 260  | 230914 | M      | Single Number III
