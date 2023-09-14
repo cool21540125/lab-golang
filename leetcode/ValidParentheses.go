@@ -1,21 +1,33 @@
 package leetcode
 
-import "strings"
-
 func isValid(s string) bool {
-	left := ""
+	if len(s) == 0 || len(s)%2 == 1 {
+		return false
+	}
 
-	for _, char := range s {
-		cc := string(char)
-		if strings.Contains("[{(", cc) {
-			left += cc
-		} else if left == "" {
+	/*
+		( 40
+		) 41
+		[ 91
+		] 93
+		{ 123
+		} 125
+	*/
+	pairs := map[rune]rune{
+		'(': ')',
+		'[': ']',
+		'{': '}',
+	}
+	left := []rune{}
+
+	for _, rr := range s {
+		if _, found := pairs[rr]; found {
+			left = append(left, rr)
+		} else if len(left) == 0 || pairs[left[len(left)-1]] != rr {
 			return false
-		} else if (cc == "]" && string(left[len(left)-1:]) == "[") ||
-			(cc == "}" && string(left[len(left)-1:]) == "{") ||
-			(cc == ")" && string(left[len(left)-1:]) == "(") {
-			left = string(left[0 : len(left)-1])
+		} else {
+			left = left[:len(left)-1]
 		}
 	}
-	return left == ""
+	return len(left) == 0
 }
