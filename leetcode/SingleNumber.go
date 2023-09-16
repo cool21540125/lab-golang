@@ -1,21 +1,12 @@
 package leetcode
 
-func singleNumber(nums []int) int {
-	for _, num := range nums {
-		repeated := count(nums, num)
-		if repeated == 1 {
-			return num
-		}
-	}
-	return 0
-}
+import "fmt"
 
-func count(nums []int, target int) int {
-	cnt := 0
-	for _, num := range nums {
-		if num == target {
-			cnt += 1
-		}
+func singleNumber(nums []int) int {
+	var res int
+	for i := 0; i < len(nums); i++ {
+		res ^= nums[i]
+		fmt.Println(res)
 	}
-	return cnt
+	return res
 }
