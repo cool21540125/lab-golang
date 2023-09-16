@@ -4,8 +4,8 @@
 - https://www.bogotobogo.com/GoLang/GoLang_Function_taking_a_slice_and_returning_a_slice.php
 
 
-Qid  | Date   | Level  | note
+Qid  | Date   | Level  | File
 ---- | ------ | ------ | ---------------
-1    | 230910 | E      | Two Sum
-20   | 230914 | E      | Valid Parentheses
-260  | 230914 | M      | Single Number III
+1    | 230910 | E      | [Two Sum](./leetcode/TwoSum.go)
+20   | 230914 | E      | [Valid Parentheses](./leetcode/ValidParentheses.go)
+260  | 230914 | M      | [Single Number III](./leetcode/SingleNumberIII.go)

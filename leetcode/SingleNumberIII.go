@@ -2,7 +2,7 @@ package leetcode
 
 import "golang.org/x/exp/maps"
 
-func singleNumber(nums []int) []int {
+func singleNumberIII(nums []int) []int {
 
 	set := make(map[int]bool)
 
