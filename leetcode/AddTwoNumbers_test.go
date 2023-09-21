@@ -4,154 +4,75 @@ import (
 	"testing"
 )
 
-func TestAddTwoNumbers1(t *testing.T) {
-	list1 := []int{2, 4}
-	list2 := []int{5, 6, 4}
-	target := []int{7, 0, 5}
-
-	base1 := &ListNode{0, nil}
-	tail := base1
-	for _, i1 := range list1 {
+func makeLinkedList(lists []int) *ListNode {
+	baseNode := &ListNode{0, nil}
+	tail := baseNode
+	for _, i1 := range lists {
 		newNode := ListNode{i1, nil}
 		tail.Next = &newNode
 		tail = &newNode
 	}
-	l1 := base1.Next
-
-	base2 := &ListNode{0, nil}
-	tail = base2
-	for _, i2 := range list2 {
-		newNode := ListNode{i2, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	l2 := base2.Next
-
-	baseTarget := &ListNode{0, nil}
-	tail = baseTarget
-	for _, i3 := range target {
-		newNode := ListNode{i3, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	expected := baseTarget.Next
-
-	result := addTwoNumbers(l1, l2)
-	if result.Val != expected.Val {
-		t.Errorf("result.Val: %v != expected.Val: %v", result.Val, expected.Val)
-	}
+	return baseNode.Next
 }
 
-func TestAddTwoNumbers2(t *testing.T) {
-	list1 := []int{2, 4, 3}
-	list2 := []int{5, 6, 4}
-	target := []int{7, 0, 8}
-
-	base1 := &ListNode{0, nil}
-	tail := base1
-	for _, i1 := range list1 {
-		newNode := ListNode{i1, nil}
-		tail.Next = &newNode
-		tail = &newNode
+func TestAddTwoNumbers(t *testing.T) {
+	testExamples := []struct {
+		list1      []int
+		list2      []int
+		targetList []int
+	}{
+		{
+			list1:      []int{2, 4},
+			list2:      []int{5, 6, 4},
+			targetList: []int{7, 0, 5},
+		},
+		{
+			list1:      []int{2, 4, 3},
+			list2:      []int{5, 6, 4},
+			targetList: []int{7, 0, 8},
+		},
+		{
+			list1:      []int{0},
+			list2:      []int{0},
+			targetList: []int{0},
+		},
+		{
+			list1:      []int{1},
+			list2:      []int{9, 0},
+			targetList: []int{0, 1},
+		},
+		{
+			list1:      []int{9, 9, 9, 9, 9, 9, 9},
+			list2:      []int{9, 9, 9, 9},
+			targetList: []int{8, 9, 9, 9, 0, 0, 0, 1},
+		},
 	}
-	l1 := base1.Next
 
-	base2 := &ListNode{0, nil}
-	tail = base2
-	for _, i2 := range list2 {
-		newNode := ListNode{i2, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	l2 := base2.Next
+	for _, example := range testExamples {
 
-	baseTarget := &ListNode{0, nil}
-	tail = baseTarget
-	for _, i3 := range target {
-		newNode := ListNode{i3, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	expected := baseTarget.Next
+		l1 := makeLinkedList(example.list1)
+		l2 := makeLinkedList(example.list2)
 
-	result := addTwoNumbers(l1, l2)
-	if result.Val != expected.Val {
-		t.Errorf("result.Val: %v != expected.Val: %v", result.Val, expected.Val)
-	}
-}
+		result := addTwoNumbers(l1, l2)
 
-func TestAddTwoNumbers3(t *testing.T) {
-	list1 := []int{0}
-	list2 := []int{0}
-	target := []int{0}
+		result_list := []int{}
+		for {
+			result_list = append(result_list, result.Val)
+			if result.Next != nil {
+				result = result.Next
+			} else {
+				break
+			}
+		}
 
-	base1 := &ListNode{0, nil}
-	tail := base1
-	for _, i1 := range list1 {
-		newNode := ListNode{i1, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	l1 := base1.Next
-
-	base2 := &ListNode{0, nil}
-	tail = base2
-	for _, i2 := range list2 {
-		newNode := ListNode{i2, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	l2 := base2.Next
-
-	baseTarget := &ListNode{0, nil}
-	tail = baseTarget
-	for _, i3 := range target {
-		newNode := ListNode{i3, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	expected := baseTarget.Next
-
-	result := addTwoNumbers(l1, l2)
-	if result.Val != expected.Val {
-		t.Errorf("result.Val: %v != expected.Val: %v", result.Val, expected.Val)
-	}
-}
-
-func TestAddTwoNumbers4(t *testing.T) {
-	list1 := []int{9, 9, 9, 9, 9, 9, 9}
-	list2 := []int{9, 9, 9, 9}
-	target := []int{8, 9, 9, 9, 0, 0, 0, 1}
-
-	base1 := &ListNode{0, nil}
-	tail := base1
-	for _, i1 := range list1 {
-		newNode := ListNode{i1, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	l1 := base1.Next
-
-	base2 := &ListNode{0, nil}
-	tail = base2
-	for _, i2 := range list2 {
-		newNode := ListNode{i2, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	l2 := base2.Next
-
-	baseTarget := &ListNode{0, nil}
-	tail = baseTarget
-	for _, i3 := range target {
-		newNode := ListNode{i3, nil}
-		tail.Next = &newNode
-		tail = &newNode
-	}
-	expected := baseTarget.Next
-
-	result := addTwoNumbers(l1, l2)
-	if result.Val != expected.Val {
-		t.Errorf("result.Val: %v != expected.Val: %v", result.Val, expected.Val)
+		if len(result_list) != len(example.targetList) {
+			t.Errorf("Expected: %v != Result: %v", example.targetList, result_list)
+		} else {
+			for i := range result_list {
+				if result_list[i] != example.targetList[i] {
+					t.Errorf("Expected: %v != Result: %v", example.targetList, result_list)
+				}
+			}
+		}
 	}
 }

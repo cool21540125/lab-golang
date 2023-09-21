@@ -4,32 +4,28 @@ import (
 	"testing"
 )
 
-func TestSingleNumber1(t *testing.T) {
-	nums := []int{2, 2, 1}
-	target := 1
-
-	result := singleNumber(nums)
-	if result != target {
-		t.Errorf("Expected %v, but got %v", target, result)
+func TestSingleNumber(t *testing.T) {
+	testExamples := []struct {
+		nums     []int
+		expected int
+	}{
+		{
+			nums:     []int{2, 2, 1},
+			expected: 1,
+		},
+		{
+			nums:     []int{4, 1, 2, 1, 2},
+			expected: 4,
+		},
+		{
+			nums:     []int{1},
+			expected: 1,
+		},
 	}
-}
-
-func TestSingleNumber2(t *testing.T) {
-	nums := []int{4, 1, 2, 1, 2}
-	target := 4
-
-	result := singleNumber(nums)
-	if result != target {
-		t.Errorf("Expected %v, but got %v", target, result)
-	}
-}
-
-func TestSingleNumber3(t *testing.T) {
-	nums := []int{1}
-	target := 1
-
-	result := singleNumber(nums)
-	if result != target {
-		t.Errorf("Expected %v, but got %v", target, result)
+	for _, example := range testExamples {
+		result := singleNumber(example.nums)
+		if result != example.expected {
+			t.Errorf("Expected %v, but got %v", example.expected, result)
+		}
 	}
 }

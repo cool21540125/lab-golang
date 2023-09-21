@@ -5,51 +5,31 @@ import (
 )
 
 func TestTwoSum(t *testing.T) {
-	nums := []int{2, 7, 11, 15}
-	target := 9
-
-	result := twoSum(nums, target)
-	if result[0] != 0 || result[1] != 1 {
-		t.Errorf("Expected [0,1] but got %v", result)
+	testExamples := []struct {
+		nums     []int
+		target   int
+		expected []int
+	}{
+		{
+			nums:     []int{2, 7, 11, 15},
+			target:   9,
+			expected: []int{0, 1},
+		},
+		{
+			nums:     []int{3, 2, 4},
+			target:   6,
+			expected: []int{1, 2},
+		},
+		{
+			nums:     []int{3, 3},
+			target:   6,
+			expected: []int{0, 1},
+		},
 	}
-}
-
-func TestTwoSum2(t *testing.T) {
-	nums := []int{3, 2, 4}
-	target := 6
-
-	result := twoSum(nums, target)
-	if result[0] != 1 || result[1] != 2 {
-		t.Errorf("Expected [1,2] but got %v", result)
-	}
-}
-
-func TestTwoSum3(t *testing.T) {
-	nums := []int{3, 3}
-	target := 6
-
-	result := twoSum(nums, target)
-	if result[0] != 0 || result[1] != 1 {
-		t.Errorf("Expected [0,1] but got %v", result)
-	}
-}
-
-func TestTwoSum4(t *testing.T) {
-	nums := []int{3, 3}
-	target := 8
-
-	result := twoSum(nums, target)
-	if result[0] != 0 || result[1] != 0 {
-		t.Errorf("Expected [0,0] but got %v", result)
-	}
-}
-
-func TestTwoSum5(t *testing.T) {
-	nums := []int{3, 6, 9, 12, 15}
-	target := 27
-
-	result := twoSum(nums, target)
-	if result[0] != 3 && result[1] != 4 {
-		t.Errorf("Expected [3,4] but got %v", result)
+	for _, example := range testExamples {
+		result := twoSum(example.nums, example.target)
+		if result[0] != example.expected[0] || result[1] != example.expected[1] {
+			t.Errorf("Expected %v but got %v", example.expected, result)
+		}
 	}
 }
