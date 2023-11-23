@@ -11,3 +11,11 @@ Qid  | Date       | Level | File
 260  | 2023.09.14 | M     | [Single Number III](./leetcode/SingleNumberIII.go)
 136  | 2023.09.16 | E     | [Single Number](./leetcode/SingleNumber.go)
 2    | 2023.09.21 | M     | [Add Two Numbers](./leetcode/AddTwoNumbers.py)
+
+
+```bash
+
+go test leetcode/*.go -cover
+
+go test leetcode/*.go -coverprofile=coverage.out && go tool cover -html=coverage.out
+```
