@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/cool21540125/lab-golang#readme",
   "devDependencies": {
-    "@commitlint/config-conventional": "^18.4.3",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "husky": "^8.0.3",
