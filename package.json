@@ -1,0 +1,26 @@
+{
+  "name": "lab-golang",
+  "version": "1.0.0",
+  "description": "Learning Golang",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cool21540125/lab-golang.git"
+  },
+  "author": "TonyChou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cool21540125/lab-golang/issues"
+  },
+  "homepage": "https://github.com/cool21540125/lab-golang#readme",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^18.4.3",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "husky": "^8.0.3",
+    "semantic-release": "^22.0.8"
+  }
+}
