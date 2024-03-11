@@ -11,6 +11,11 @@ func TestTwoSum(t *testing.T) {
 		expected []int
 	}{
 		{
+			nums:     []int{0},
+			target:   0,
+			expected: []int{0, 0},
+		},
+		{
 			nums:     []int{2, 7, 11, 15},
 			target:   9,
 			expected: []int{0, 1},
