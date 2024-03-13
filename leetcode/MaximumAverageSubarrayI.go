@@ -8,7 +8,7 @@ func findMaxAverage(nums []int, k int) float64 {
 
 	largestSumm := summ
 
-	for idx, _ := range nums[k:] {
+	for idx := range nums[k:] {
 		summ = summ - nums[idx] + nums[idx+k]
 		if summ > largestSumm {
 			largestSumm = summ
