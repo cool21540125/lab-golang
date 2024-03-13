@@ -12,6 +12,7 @@ Qid  | Date       | Level | File
 136  | 2023.09.16 | E     | [Single Number](./leetcode/SingleNumber.go)
 2    | 2023.09.21 | M     | [Add Two Numbers](./leetcode/AddTwoNumbers.go)
 643  | 2023.11.26 | E     | [Maximum Average Subarray I](./leetcode/MaximumAverageSubarrayI.go)
+2485 | 2024.03.13 | E     | [Find the Pivot Integer](./leetcode/FindThePivotInteger.go)
 
 
 ```bash
