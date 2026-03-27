@@ -34,11 +34,11 @@ func TestConvertToRoman(t *testing.T) {
 		{Num: 1090, Symbolic: "MXC"},
 		{Num: 2014, Symbolic: "MMXIV"},
 	}
-	for _, test := range cases {
-		t.Run(fmt.Sprintf("%q -> %d", test.Symbolic, test.Num), func(t *testing.T) {
-			got := ConvertToRoman(test.Num)
-			if test.Symbolic != got {
-				t.Errorf("%d expected %q, but got %q", test.Num, test.Symbolic, got)
+	for _, cs := range cases {
+		t.Run(fmt.Sprintf("%q -> %d", cs.Symbolic, cs.Num), func(t *testing.T) {
+			got := ConvertToRoman(cs.Num)
+			if cs.Symbolic != got {
+				t.Errorf("%d expected %q, but got %q", cs.Num, cs.Symbolic, got)
 			}
 		})
 	}

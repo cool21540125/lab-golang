@@ -13,6 +13,7 @@ Qid  | Date       | Level | File
 2    | 2023.09.21 | M     | [Add Two Numbers](./leetcode/AddTwoNumbers.go)
 643  | 2023.11.26 | E     | [Maximum Average Subarray I](./leetcode/MaximumAverageSubarrayI.go)
 2485 | 2024.03.13 | E     | [Find the Pivot Integer](./leetcode/FindThePivotInteger.go)
+1171 | 2024.03.13 | M     | [Remove Zero Sum Consecutive Nodes from Linked List](./leetcode/RemoveZeroSumSublists.go)
 
 
 ```bash
